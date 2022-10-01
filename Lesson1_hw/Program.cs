@@ -41,3 +41,27 @@ Console.WriteLine($"Число {a} нечетное");
 
 5 -> 2, 4  
 8 -> 2, 4, 6, 8   */
+Console.Write("Введите число ");
+int a = int.Parse(Console.ReadLine()!);
+int i = 1;
+if(a>0){
+while (i < a)
+{
+    if (i % 2 == 0)
+    {
+        Console.WriteLine(i);
+    }
+    i++;
+}
+}
+//Тут есть возможность для отрицательных чисел не включая 0
+if(a<0){
+while (i > a)
+{
+    if (i % 2 == 0 & i!=0)
+    {
+        Console.WriteLine(i);
+    }
+    i--;
+}
+}
