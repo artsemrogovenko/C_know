@@ -31,6 +31,12 @@ Console.WriteLine($"Max={c}");
 -3 -> нет  
 7 -> нет  
  */
+Console.WriteLine("Введите число");
+int a = int.Parse(Console.ReadLine()!);
+if(a%2==0){
+    Console.WriteLine($"Число {a} четное");}
+else 
+Console.WriteLine($"Число {a} нечетное");
 /* Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
 
 5 -> 2, 4  
