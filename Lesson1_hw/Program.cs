@@ -16,7 +16,15 @@ Console.WriteLine($"Max={b}\tMin={a}");
 2, 3, 7 -> 7  
 44 5 78 -> 78  
 22 3 9 -> 22  */ 
+Console.WriteLine("Введите три числа ");
+int a = int.Parse(Console.ReadLine()!);
+int b = int.Parse(Console.ReadLine()!);
+int c = int.Parse(Console.ReadLine()!);
 
+if(a>b & a>c){   Console.WriteLine($"Max={a}");}
+if(b>a & b>c){   Console.WriteLine($"Max={b}");}
+else
+Console.WriteLine($"Max={c}");
 /* Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
 
 4 -> да  
