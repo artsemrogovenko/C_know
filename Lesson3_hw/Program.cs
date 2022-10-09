@@ -1,5 +1,5 @@
 ﻿//Задача 19
-Console.WriteLine("Является ли палиндромом");
+/* Console.WriteLine("Является ли палиндромом");
 Console.Write("Пятизначное число: ");
 int number = int.Parse(Console.ReadLine()!);
 if (number > 9999 && number <= 99999)
@@ -27,3 +27,16 @@ if (x.Length == 5)
     
 }
 else { Console.WriteLine("Не пятизначное число"); }
+ */
+
+// Задача 21
+Console.WriteLine("Расстояние в 3D пространстве между точками");
+int[] mas= new int[6];
+for (int i = 0; i < 6; i++){
+    if (i==0){  Console.WriteLine("XYZ координаты точки A"); }
+    if (i==3){   Console.WriteLine("XYZ координаты точки В"); }
+mas[i] = int.Parse(Console.ReadLine()!);
+    
+}
+double result = Math.Sqrt( Math.Pow((mas[0] - mas[3]),2)+ Math.Pow((mas[1] - mas[4]),2)+Math.Pow((mas[2] - mas[5]),2));
+Console.WriteLine($"Результат {result:F2}");
