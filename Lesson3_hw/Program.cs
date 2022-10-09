@@ -30,7 +30,7 @@ else { Console.WriteLine("Не пятизначное число"); }
  */
 
 // Задача 21
-Console.WriteLine("Расстояние в 3D пространстве между точками");
+/* Console.WriteLine("Расстояние в 3D пространстве между точками");
 int[] mas= new int[6];
 for (int i = 0; i < 6; i++){
     if (i==0){  Console.WriteLine("XYZ координаты точки A"); }
@@ -39,4 +39,23 @@ mas[i] = int.Parse(Console.ReadLine()!);
     
 }
 double result = Math.Sqrt( Math.Pow((mas[0] - mas[3]),2)+ Math.Pow((mas[1] - mas[4]),2)+Math.Pow((mas[2] - mas[5]),2));
-Console.WriteLine($"Результат {result:F2}");
+Console.WriteLine($"Результат {result:F2}"); */
+
+//Задача 23
+Console.WriteLine("Таблица кубов чисел от 1 до N.");
+Console.WriteLine("Введите число N.");
+int N = int.Parse(Console.ReadLine()!);
+int i = 1;
+if (N > 0)
+{
+    while (i <= N)  {
+        Console.Write($"{i * i * i}");
+        if (i != N){
+            Console.Write(",");
+        }        
+        i++;
+    }
+    Console.WriteLine();
+}
+else
+Console.WriteLine("число отрицательное.");
