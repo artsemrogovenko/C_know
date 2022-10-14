@@ -28,13 +28,41 @@ Console.WriteLine("Программа вычислит сумму цифр в ч
 string number = Console.ReadLine()!;
 Console.WriteLine($"Сумма равна {GetSumm(number)}");
 
-int GetSumm(string x){
-   int sum = 0;
-      for(int i=0; i < x.Length; i++){
-        if(x[i]>47 && x[i]<58){ // если встретится буква , то суммироваться небудет
-        sum=sum+x[i]-48; //  ASCII таблица цифра 0 = 40 цифра 9=57
+int GetSumm(string x)
+{
+    int sum = 0;
+    for (int i = 0; i < x.Length; i++)
+    {
+        if (x[i] > 47 && x[i] < 58)
+        { // если встретится буква , то суммироваться небудет
+            sum = sum + x[i] - 48; //  ASCII таблица цифра 0 = 48 цифра 9=57
         }
-     }  
-     return sum;
+    }
+    return sum;
 }
 
+/*Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+6, 1, 33 -> [6, 1, 33]
+*/
+Console.WriteLine("Заполнение массива");
+Console.Write("Задать размер массива ");
+int razmer = int.Parse(Console.ReadLine()!);
+
+Console.Write("Задать минимальное число ");
+int min = int.Parse(Console.ReadLine()!);
+
+Console.Write("Задать максимальное число ");
+int max = int.Parse(Console.ReadLine()!);
+
+ArrRandom(razmer,min,max);
+
+void ArrRandom(int elements, int MinVal, int MaxVal)
+{
+    int[] mas = new int[elements];
+    for (int i = 0; i < elements; i++)
+    {
+        mas[i] = new Random().Next(MinVal, MaxVal);
+    }
+    Console.WriteLine(String.Join(",", mas));
+}
