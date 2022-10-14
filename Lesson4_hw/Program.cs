@@ -55,14 +55,15 @@ int min = int.Parse(Console.ReadLine()!);
 Console.Write("Задать максимальное число ");
 int max = int.Parse(Console.ReadLine()!);
 
-ArrRandom(razmer,min,max);
-
-void ArrRandom(int elements, int MinVal, int MaxVal)
+int[] arr =ArrRandom(razmer,min,max);
+Console.WriteLine(String.Join(",", arr));
+int[] ArrRandom(int elements, int MinVal, int MaxVal)
 {
     int[] mas = new int[elements];
     for (int i = 0; i < elements; i++)
     {
         mas[i] = new Random().Next(MinVal, MaxVal);
     }
-    Console.WriteLine(String.Join(",", mas));
+    //Console.WriteLine(String.Join(",", mas));
+    return mas;
 }
