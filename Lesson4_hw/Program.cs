@@ -18,5 +18,23 @@ void Multiply(int num1, int num2)
         result = result * num1;
     }
     Console.WriteLine($"Произведение числа {A} в степени {B} = {result}");
+    return;
+}
+
+/* Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+452 -> 11 82 -> 10
+9012 -> 12 */
+Console.WriteLine("Программа вычислит сумму цифр в числе:");
+string number = Console.ReadLine()!;
+Console.WriteLine($"Сумма равна {GetSumm(number)}");
+
+int GetSumm(string x){
+   int sum = 0;
+      for(int i=0; i < x.Length; i++){
+        if(x[i]>47 && x[i]<58){ // если встретится буква , то суммироваться небудет
+        sum=sum+x[i]-48; //  ASCII таблица цифра 0 = 40 цифра 9=57
+        }
+     }  
+     return sum;
 }
 
