@@ -21,6 +21,20 @@ return sum;
 [3, 7, 23, 12] -> 19
 [-4, -6, 89, 6]-> 0 */
 
+int[] mas2= ArrRandom(6,0,100);
+Console.WriteLine(String.Join(",",mas2));
+Console.WriteLine($"Cумма четных позиций: {SumElem(mas2)}");
+
+int SumElem(int[] array){
+int sum = 0;
+for (int i=1; i < array.Length; i++)
+{
+        sum=sum+array[i];
+        i++;
+}
+return sum;
+}
+
 /* Задача 38: Задайте массив вещественных чисел(просто от минус бесконечности, до плюс бесконечности, 
 с дробными не работаем). Найдите разницу между максимальным и минимальным элементов массива.
 [3 7 22 2 78] -> 76 */
