@@ -161,11 +161,158 @@ void DualPrint(int[,] array)
 66(0,0,0) 25(0,1,0)
 34(1,0,0) 41(1,1,0)
 27(0,0,1) 90(0,1,1)
-26(1,0,1) 55(1,1,1)
+26(1,0,1) 55(1,1,1)*/
+int[] TwoDigit=new int[90];
+IncrementFill(TwoDigit); 
+ Console.WriteLine("Задан диапазон двузначных чисел");
 
+void IncrementFill(int[] array){
+    for (int val = 10, i = 0; i < array.Length; val++, i++)
+    {
+        array[i] = val;
+    }
+}
+
+int[, ,] TripleArray=new int[2,2,2];
+TripleFill(TripleArray,TwoDigit);
+PrintTriple(TripleArray);
+
+bool Reiteration (int[] array, int value) {
+    bool result=false;
+for (int i = 0; i < array.Length ; i++ )
+    {
+        if(array[i]==value){
+            result=true;
+            break;
+        }
+    }
+    return result;
+}
+
+void TripleFill(int[, ,] array, int[] numbers){
+int tempindex = 0;
+int[] temp = new int[array.GetLength(0) * array.GetLength(1) * array.GetLength(2)];
+
+    while (tempindex < temp.Length)
+    {
+        int random = numbers[new Random().Next(0, numbers.Length)];
+        if (! Reiteration(temp, random))
+        {
+            temp[tempindex] = random;
+            tempindex++;
+        }
+    }
+
+    tempindex = 0;
+
+ for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                array[i, j, k] = temp[tempindex];
+                tempindex++;
+            }
+        }
+    }
+}
+
+void PrintTriple(int[, ,] array)
+{
+    int i=0;
+    int j=0;
+    int k=0;
+    while (k < array.GetLength(2))
+    {
+         Console.WriteLine($"вывод {k+1} слоя трехмерного массива");
+        for (i = 0; i < array.GetLength(0); i++)
+        {
+            for (j = 0; j < array.GetLength(1); j++)
+            {
+                Console.Write($"{array[i, j, k]}({i},{j},{k})  ");
+            }
+            Console.WriteLine();
+        }
+        k++;
+    }
+    }
+
+
+/*
 Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 Например, на выходе получается вот такой массив:
 01 02 03 04
 12 13 14 05
 11 16 15 06
 10 09 08 07 */
+
+int[,] Fillclockwise(int[,] array)
+{
+    int[,] temp = new int[array.GetLength(0), array.GetLength(1)];
+    int row = array.GetLength(0) - 1;
+    int col = array.GetLength(1) - 1;
+    int steps = array.GetLength(1) * array.GetLength(0); // максимальное число
+    int i = 0;
+    int j = 0;
+    int number = 1; // начальное число
+    int depth = 0; // для перехода на шаг внутрь
+    while (number < steps)
+    {
+        while (j < col - depth && number <= steps)
+        {
+            temp[i, j] = number;
+            j++;
+            number++;
+        }
+
+        while (i < row - depth && number <= steps)
+        {
+            temp[i, j] = number;
+            i++;
+            number++;
+        }
+
+        while (j > depth && number <= steps)
+        {
+            temp[i, j] = number;
+            j--;
+            number++;
+        }
+
+        while (i > depth && number <= steps)
+        {
+            temp[i, j] = number;
+            i--;
+            number++;
+        }
+
+        depth++;
+        i++;
+        j++;
+     //    Console.WriteLine($"i={i} j={j} number={number}");
+    }
+        if (steps % 2 > 0) //если массив из нечетных количеств строк и столбцов поставить в центр максимальное число
+        { 
+           temp[array.GetLength(0) / 2, array.GetLength(1) / 2] = steps;
+        }
+    return temp;
+}
+
+void PrintDual(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(string.Format("{0:D2}", array[i, j]));
+            Console.Write(" ");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.WriteLine("заполнение по спирали");
+int[,] array2 = new int[3,3];
+array2 = Fillclockwise(array2);
+PrintDual(array2);
